@@ -1,13 +1,23 @@
 <template>
-  <div id="app">
+  <div>
+    <AppBar/>
+    <div id="app">
+      <Home v-if="currentPage==='Home'"/>
+    </div>
   </div>
 </template>
 
 <script>
 
+import AppBar from "@/components/AppBar";
+import Home from "@/components/Home";
 export default {
   name: 'App',
-  components: {
+  components: {AppBar, Home},
+  computed: {
+    currentPage() {
+      return this.$store.getters.getPage
+    }
   }
 }
 </script>
@@ -19,6 +29,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
