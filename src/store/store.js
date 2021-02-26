@@ -5,17 +5,24 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        currentPage: "Home"
+        currentPage: "Home",
+        filters: null
     },
     mutations: {
         setPage(state, payload) {
             state.currentPage = payload
+        },
+        setFilters(state, payload) {
+            state.filters = payload
         }
     },
     actions: {},
     getters: {
         getPage: state => {
             return state.currentPage
+        },
+        getFilters: state => {
+            return state.filters
         }
     }
 })
