@@ -44,7 +44,16 @@ export default {
   },
   methods: {
     submitForm(page) {
-      this.$store.commit('setFilters', this.fields.filter(field => field.value !== ''))
+      this.$store.commit(
+          'setFilters',
+          this.fields
+              .filter(field => field.value !== '')
+              .map(field => ({[field.field]: field.value}))
+              .reduce((acc, x) => {
+                for (const key in x) acc[key] = x[key];
+                return acc;
+              }, {})
+      )
       this.$store.commit('setPage', page)
     }
   }
