@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: '/it202-project1/'
+  publicPath: '/IT202-Spring2021-project1/'
 }
